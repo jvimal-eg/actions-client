@@ -1,0 +1,12 @@
+name: 'EdgeGuardian client'
+description: 'EdgeGuardian private access'
+
+inputs:
+  user_token:
+    description: "User token.  Create one on https://app.edge-guardian.io"
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'main.js'
+  post: 'cleanup.js'
