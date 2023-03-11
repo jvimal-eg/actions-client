@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const { shell } = require('./shell');
+const { shell } = require('./shell.js');
 
 async function install() {
     await shell(`
@@ -16,14 +16,14 @@ async function status() {
 }
 
 async function main() {
-    const token = core.getInput('user_token');
+    const token = core.getInput('api_key');
     await install();
     await login(token);
     await status();
 }
 
 try {
-    await main();
+    main();
 } catch (error) {
     core.setFailed(error.message);
 }

@@ -1,6 +1,6 @@
 const exec = require("@actions/exec");
 
-export async function shell(command) {
+async function shell(command) {
     try {
         const args = [
             "-c",
@@ -11,3 +11,5 @@ export async function shell(command) {
         core.setFailed(error.message);
     }
 }
+
+exports.shell = shell;
