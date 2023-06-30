@@ -25,5 +25,6 @@ async function main() {
 try {
     main();
 } catch (error) {
+    core.saveState("EG_FAILED", "true");
     core.setFailed(error.message);
 }

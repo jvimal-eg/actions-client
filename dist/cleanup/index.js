@@ -4148,6 +4148,17 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186);
 const { shell } = __nccwpck_require__(752);
 
+if (core.getState("EG_FAILED") == "true") {
+    if (core.getInput('submit_diagnostics_on_failure') == "true") {
+        try {
+            shell('egctl advanced log-upload');
+        } catch (error) { }
+    }
+    try {
+        shell('cat /var/log/edgeguardian/datapath.log || true;')
+    } catch (error) { }
+}
+
 try {
     shell('egctl logout');
 } catch (error) {
