@@ -5,6 +5,7 @@ This GitHub action connects your runner to your private network.
 ## Supported OSes/runners
 1. ubuntu-latest
 2. Amazon Linux 2
+3. Windows Server 2019 and 2022
 
 ## Inputs
 
@@ -36,9 +37,16 @@ with:
 If you want to customize this action, or clone it into your own GitHub action,
 please run `npm install && npm run all` and check in the `dist/*` files.
 
+If you encounter an SSL error with node (`  code: 'ERR_OSSL_EVP_UNSUPPORTED'),
+please run with:
+
+```
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
 ## Diagnostics
 If you encounter any error with the client, please run it with the following
-arguments:
+arguments (only supported on linux):
 
 ```yaml
 uses: edgeguardian/actions-client@latest
