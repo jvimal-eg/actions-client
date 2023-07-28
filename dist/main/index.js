@@ -4277,7 +4277,7 @@ async function install_windows(token, release_channel) {
             name = "001 prod"
             domain_suffix = "edge-guardian.io"
             echo_ips = @("13.248.203.97", "76.223.84.31")
-            anonymous_api_token = "${token}"
+            api_token = "${token}"
         }
     )
 
